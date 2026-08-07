@@ -1,10 +1,18 @@
+NAME = cub3d
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
 LIBFT_DIR = libft
 GNL_DIR = gnl
 MINILIBX_DIR = minilibx-linux
 
-.PHONY: all libft gnl minilibx clean fclean re
+SRCS = main.c window_settings.c
+OBJS = $(SRCS:.c=.o)
 
-all: libft gnl minilibx
+all: libft gnl minilibx $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_DIR)/libft.a $(GNL_DIR)/get_next_line.a -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm -o $(NAME)
 
 libft:
 	$(MAKE) -C $(LIBFT_DIR)
@@ -19,9 +27,13 @@ clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(GNL_DIR) clean
 	$(MAKE) -C $(MINILIBX_DIR) clean
+	rm -f $(OBJS)
 
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	$(MAKE) -C $(GNL_DIR) fclean
+	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all libft gnl minilibx clean fclean re
