@@ -1,12 +1,12 @@
 NAME = cub3d
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
 
 LIBFT_DIR = libft
 GNL_DIR = gnl
 MINILIBX_DIR = minilibx-linux
 
-SRCS = main.c window_settings.c
+SRCS = main.c window_settings.c utils.c init_player.c
 OBJS = $(SRCS:.c=.o)
 
 all: libft gnl minilibx $(NAME)

@@ -5,7 +5,7 @@ int main()
     t_vars	var;
 	t_map	*map;
 
-    window_settings(&var, 600, 500);
+    window_settings(&var, SIZE_X, SIZE_Y);
     mlx_loop(var.mlx);
 	return (0);
 }
