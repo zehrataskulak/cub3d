@@ -1,6 +1,6 @@
 NAME = cub3d
 CC = cc
-CFLAGS = 
+CFLAGS = -g
 
 LIBFT_DIR = libft
 GNL_DIR = gnl
